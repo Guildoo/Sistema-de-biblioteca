@@ -23,6 +23,7 @@ public class Livro {
         disponivel = true;
     }
 
+    @Override
     public String toString() {
         return "Livro [título=" + titulo + ", autor=" + autor + ", isbn=" + isbn + ", disponivel=" + disponivel + "]";
     }
