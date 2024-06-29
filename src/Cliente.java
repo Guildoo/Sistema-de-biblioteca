@@ -1,16 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     private String nome;
-    private Integer id;
+    private int id;
     private List<Livro> livrosEmprestados;
 
-    public Cliente(String nome, Integer id) {
+    public Cliente(String nome, int id) {
         this.nome = nome;
         this.id = id;
         this.livrosEmprestados = new ArrayList<>();
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void emprestarLivro(Livro livro) {
-        if (livro != null && livro.disponivel) {
+        if (livro != null && livro.isDisponivel()) {
             livro.emprestar();
             livrosEmprestados.add(livro);
         } else {
@@ -22,7 +29,7 @@ public class Cliente {
         if (livrosEmprestados.remove(livro)) {
             livro.devolver();
         } else {
-            System.out.println("Livro não está com cliente.");
+            System.out.println("Livro não está com o cliente.");
         }
     }
 
